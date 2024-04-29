@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    ports:
+    - "8090:8090"
+    networks:
+    - student.2-network
+    
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_USER: akhil
+      MYSQL_PASSWORD: 5589
+      MYSQL_DB: TELUSKO
+      MYSQL_ROOT_PASSWORD: akhil1234
+    ports:
+    - 3307:3306
+    networks:
+    - student.2-network
+
+networks:
+  student.2-network:
+    driver: bridge
